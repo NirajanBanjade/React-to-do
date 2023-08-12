@@ -6,18 +6,21 @@ export default function Todos(props) {
     <div className='todocontainer'>
        <h3 className='text-center'>Works to do</h3>
 
-    {
-      (props.todos.map((variab)=>{
+    
+      {Array.isArray(props.todos) && props.todos.length===0? "Congratulations!!! You finished all the pending works...." :
+   
+      props.todos.map((variab)=>{
       
         return <List todo={variab} key = {variab.Num} ondelete={props.ondelete}/>
           
         
         
-      }))
-    }
+      })
+    } 
+    
         
-    </div>
+  </div>
       
-  )
+)
 }
 

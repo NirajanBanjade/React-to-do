@@ -1,4 +1,8 @@
 .container-fluid{
-    background-color: skyblue;
+    background-color: skyblue
+    ;
+}
 
+h3{
+    font-family:cursive;
 }

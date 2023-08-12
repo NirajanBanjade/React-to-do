@@ -5,6 +5,7 @@ import Header from "./Component/Header";
 import {Footer} from './Component/Footer';
 import Todos from "./Component/Todos";
 import React, { useState } from 'react';
+import { Add } from './Component/Add';
 
 function App() {
 
@@ -15,6 +16,18 @@ const ondelete =(todo)=>{
         return task!==todo;
     }));
 
+}
+const addtodo=(title,descrip)=>{
+    console.log("A new todo has been added ", title,descrip);
+    let Num = todos[todos.length-1].Num+1;
+    const mytodo={
+      Num:Num,
+      title:title,
+      descrip:descrip,
+      
+    }
+    setodos([...todos,mytodo]);
+    console.log(mytodo);
 }
 
   const [todos,setodos] =useState([
@@ -42,7 +55,7 @@ const ondelete =(todo)=>{
     {
       Num : 5,
       title: "Just Sleep",
-      descrip: " After doing all of it, might be tired. So, Just sleep"
+      descrip: " After doing all of it, I might get tired. So, Just sleep!!!!"
     }
 
   ])
@@ -50,8 +63,10 @@ const ondelete =(todo)=>{
   return (
     <> 
       <Header title="Nirajan's Todos" />
+      <Add  addtodo={addtodo}/>
       <Todos todos={todos} ondelete={ondelete}/>
-      <Footer/>
+       
+       <Footer/>
     </>
   );
 }
